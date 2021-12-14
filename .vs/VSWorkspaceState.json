@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\zoohandlung",
+    "\\zoohandlung\\zoohandlung"
   ],
-  "SelectedNode": "\\README.md",
+  "SelectedNode": "\\zoohandlung\\zoohandlung.sln",
   "PreviewInSolutionExplorer": false
 }
