@@ -1,0 +1,5 @@
+C:\Users\Schueler-IT\Source\Repos\zoohandlung\zoohandlung\zoohandlung\obj\Debug\net5.0-windows\zoohandlung.csproj.AssemblyReference.cache
+C:\Users\Schueler-IT\Source\Repos\zoohandlung\zoohandlung\zoohandlung\obj\Debug\net5.0-windows\MainWindow.g.cs
+C:\Users\Schueler-IT\Source\Repos\zoohandlung\zoohandlung\zoohandlung\obj\Debug\net5.0-windows\App.g.cs
+C:\Users\Schueler-IT\Source\Repos\zoohandlung\zoohandlung\zoohandlung\obj\Debug\net5.0-windows\zoohandlung_MarkupCompile.cache
+C:\Users\Schueler-IT\Source\Repos\zoohandlung\zoohandlung\zoohandlung\obj\Debug\net5.0-windows\zoohandlung_MarkupCompile.lref
