@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace zoohandlung
 {
-    class Spielzeuge : Tierhedarf 
+    class Käfig : Tierbedarf
     {
+        public Käfig(string bezeichnung, int preis) : base(bezeichnung, preis,"")
+        {
+
+        }
     }
 }
