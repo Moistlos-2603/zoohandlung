@@ -10,7 +10,8 @@ namespace zoohandlung
 {
     public class Produkt
     {
-        private static int produktZähler { get; set; }
+        //Viele Klassenproperties mussten wir wegen der Anbindung ans WPF DataGrid zu public setzten, ansonsten wäre es zu kompliziert geworden. Wir wissen aber, dass man die eigentlich Privat setzt und mit Getter und Setter freigibt. Haben Symbolisch aber getter und setter gesetzt.
+        private static int produktZähler { get; set; } //Inkrementiert mit jedem generierten Produkt.
         public int produktNummer { get; set; }
         public string bezeichnung { get;  set; }
         public int preis { get; set; }
@@ -28,14 +29,13 @@ namespace zoohandlung
 
         public Produkt()
         {
-
+            //Leerdatensatz erzeugen (für DataGrid Insert)
         }
 
-        public string getbezeichnung()
-        {
-            return this.bezeichnung;
-        }
-
+        /// <summary>
+        /// Eigene toString implementation mit allen Properties der Klasse.
+        /// </summary>
+        /// <returns>Properties und deren Wert als String (mehrzeilig)</returns>
         public virtual string toString()
         {
             string ausgabe = "";
@@ -46,6 +46,10 @@ namespace zoohandlung
             return ausgabe;
         }
 
+        /// <summary>
+        /// Speichert den durch toString erhaltenen Textblock in einer Datei.
+        /// </summary>
+        /// <param name="dateiName">Name der Zieldatei</param>
         public void saveToFile(string dateiName)
         {   
             string path = "ZoohandlungDaten";

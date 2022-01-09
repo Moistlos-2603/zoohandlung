@@ -18,6 +18,11 @@ namespace zoohandlung
 
         }
 
+        /// <summary>
+        /// Eigene toString implementation mit allen Properties der Klasse. 
+        /// Nutzt toString der Vererbenden Klasse.
+        /// </summary>
+        /// <returns>Properties und deren Wert als String (mehrzeilig)</returns>
         public override string toString()
         {
             string ausgabe = base.toString();

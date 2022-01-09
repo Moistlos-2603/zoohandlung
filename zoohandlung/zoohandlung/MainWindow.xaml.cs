@@ -37,33 +37,12 @@ namespace zoohandlung
         public ObservableCollection<Pflegeprodukte> pflegeprodukteListe { get; set; } = new ObservableCollection<Pflegeprodukte>();
         public ObservableCollection<Spielzeug> spielzeugListe { get; set; } = new ObservableCollection<Spielzeug>();
 
-        //public bool isKunde { get; set; } = false;
-
-        
-
-        private bool _isKunde;
-        public bool IsKunde
-        {
-            get { return _isKunde; }
-            set
-            {
-                _isKunde = value;
-                OnPropertyChanged();// Call OnPropertyChanged whenever the property is updated
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        // Create the OnPropertyChanged method to raise the event
-        // The calling member's name will be used as the parameter.
-        protected void OnPropertyChanged([CallerMemberName] string name = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
-
         public MainWindow()
         {
             InitializeComponent();
 
+
+            //Testdateien für die Konsole. 
 
             //Produkt testProdukt = new Produkt("Test", 10, true);
             //Trace.WriteLine(testProdukt.toString());
@@ -81,25 +60,27 @@ namespace zoohandlung
             //testVogel.saveToFile("1"); 
             //testFisch.saveToFile("2");      
 
-            //nagerListe.Add(testNagetier);
-            //fischListe.Add(testFisch);
-            //vogelListe.Add(testVogel);
-
-            this.DataContext = this;
+            this.DataContext = this; //Wichtig, damit der View die Daten aufrufen kann.
         }
 
         private void ShowLogin()
         {
+            //Elemente werden sichbar und unsichbar
             LoginWindow.Visibility = Visibility.Visible;
             ShopWindow.Visibility = Visibility.Hidden;
         }
 
         private void HideLogin()
         {
+            //Elemente werden sichbar und unsichbar
             LoginWindow.Visibility = Visibility.Hidden;
             ShopWindow.Visibility = Visibility.Visible;
         }
 
+        /// <summary>
+        /// Unterscheided zwischen Kunden und Mitarbeiter Modus, indem Knöpfe gezeigt/versteckt und Daten editierbar/nur lesbar  gemacht werden´.
+        /// </summary>
+        /// <param name="readOnly">Lesbarkeit boolean</param>
         private void setReadOnly(bool readOnly)
         {
             if (readOnly)
@@ -135,6 +116,7 @@ namespace zoohandlung
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            //Login Button Verhalten je nach Mitarbeiter oder Kunde
             System.Windows.Controls.Button myBtn = (System.Windows.Controls.Button)sender;
             if (myBtn.Name == "mitarbeiterLogin")
             {
@@ -154,6 +136,11 @@ namespace zoohandlung
             ShowLogin();
         }
 
+        /// <summary>
+        /// Fügt Beispieldatensätze zu den Kategorien hinzu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGenerateData_Click(object sender, RoutedEventArgs e)
         {
             Nagetier testNagetier = new Nagetier("Hamster", 15, true, "Weibchen", "Einfach", "Gemüse", 500, 4, 3, false, false);
@@ -181,6 +168,11 @@ namespace zoohandlung
 
         }
 
+        /// <summary>
+        /// Öffnet FileSaveDialog und exportiert alle kategoriendaten an angewählten Speicherplart.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnExportAllData_Click(object sender, RoutedEventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -190,14 +182,14 @@ namespace zoohandlung
                 string allDataText = "";
 
                 allDataText += "Nagetiere: \n[";
-                foreach (Nagetier i in nagerListe)
+                foreach (Nagetier i in nagerListe) //Für jedes Element in der Liste, die toString Methode ausführen und den gesamt Datensatz hinzufügen.
                 {
                     allDataText += "\n" + i.toString();
                 }
                 allDataText += "\n]\n";
 
                 allDataText += "\nFische: \n[";
-                foreach (Fisch i in fischListe)
+                foreach (Fisch i in fischListe) 
                 {
                     allDataText += "\n" + i.toString();
                 }
@@ -238,13 +230,17 @@ namespace zoohandlung
                 }
                 allDataText += "\n]\n";
 
-                File.WriteAllText(saveFileDialog.FileName, allDataText);
+                File.WriteAllText(saveFileDialog.FileName, allDataText); //Schreibt die gesammelten Daten in das Zielverzeichnis.
             }
 
             
 
         }
 
+        /// <summary>
+        /// Gibt das aktuelle sichtbare DataGrid zurück.
+        /// </summary>
+        /// <returns>Name des sichtbaren DataGrid.</returns>
         private string getCurrentDG()
         {
             TabItem currentShopTab = (TabItem)ShopTabs.SelectedItem;
@@ -257,67 +253,74 @@ namespace zoohandlung
             {
                 currentTab = (TabItem)TierbedarfTabs.SelectedItem;
             }
-            if (currentTab == null) return "";
+            if (currentTab == null) return ""; 
 
             string nameDG = currentTab.Name.Replace("Tab", "DG");//NagetierTab -> NagetierDG
 
-            return nameDG;
+            return nameDG; 
         }
 
+        /// <summary>
+        /// Fügt dem aktuellen DataGrid ein leeren Datensatz hinzu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             string nameDG = getCurrentDG();
 
             if (nameDG == "NagetiereDG")
             {
-                //Nagetier nager = new Nagetier("", 0, false, "", "", "", 0, 0, 0, false, false);
                 Nagetier nager = new Nagetier();
                 nagerListe.Add(nager);
             }
             else if (nameDG == "FischeDG")
             {
-                Fisch testFisch = new Fisch("", 0, false, "", "", "", 0, 0, 0, false, 1, 3);
+                Fisch testFisch = new Fisch();
                 fischListe.Add(testFisch);
             }
             else if (nameDG == "VögelDG")
             {
-                Vogel testVogel = new Vogel("", 0, false, "", "", "", 0, 0, 0, false, 0);
+                Vogel testVogel = new Vogel();
                 vogelListe.Add(testVogel);
             }
             else if (nameDG == "FutterDG")
             {
-                Futter testFutter = new Futter("",0, "", "");
+                Futter testFutter = new Futter();
                 futterListe.Add(testFutter);
             }
             else if (nameDG == "KäfigDG")
             {
-                Käfig testKäfig = new Käfig("", 0, 1);
+                Käfig testKäfig = new Käfig();
                 käfigListe.Add(testKäfig);
             }
             else if (nameDG == "PflegeprodukteDG")
             {
-                Pflegeprodukte testPflegeprodukte = new Pflegeprodukte("", 0, "", "");
+                Pflegeprodukte testPflegeprodukte = new Pflegeprodukte();
                 pflegeprodukteListe.Add(testPflegeprodukte);
             }
             else if (nameDG == "SpielzeugDG")
             {
-                Spielzeug testSpielzeug = new Spielzeug("", 0, "");
+                Spielzeug testSpielzeug = new Spielzeug();
                 spielzeugListe.Add(testSpielzeug);
             }
         }
 
+        /// <summary>
+        /// Löscht, sofern zutreffend, das selektierte Element im aktuellen DataGrid.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             string nameDG = getCurrentDG();
 
-            //DataGrid currentDG = currentTab.Children.OfType<DataGrid>()[0];
             DataGrid currentDG = (DataGrid)this.FindName(nameDG);
-            if (currentDG == null || currentDG.SelectedItem == null) return;
-            //currentDG.Items.RemoveAt(currentDG.Items.IndexOf(currentDG.SelectedItem));
+            if (currentDG == null || currentDG.SelectedItem == null) return; //Falls kein Element selektiert ist - Abbruch!
 
             if (nameDG == "NagetiereDG")
             {
-                nagerListe.RemoveAt(currentDG.Items.IndexOf(currentDG.SelectedItem));
+                nagerListe.RemoveAt(currentDG.Items.IndexOf(currentDG.SelectedItem)); //Nimmt die Position des selektierten Elements und löscht die Daten an der gleichen Position in der Nagerliste.
             } 
             else if (nameDG == "FischeDG")
             {
@@ -345,11 +348,16 @@ namespace zoohandlung
             }
         }
 
+        /// <summary>
+        ///Exportiert den aktuell selektierten Datensatz ins gewählte Verzeichnis. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSaveSingle_Click(object sender, RoutedEventArgs e)
         {
             string nameDG = getCurrentDG();
             DataGrid currentDG = (DataGrid)this.FindName(nameDG);
-            if (currentDG == null || currentDG.SelectedItem == null) return;
+            if (currentDG == null || currentDG.SelectedItem == null) return; //Falls kein Element selektiert ist - Abbruch!
 
             string saveText = "";
 
@@ -388,11 +396,16 @@ namespace zoohandlung
                 File.WriteAllText(saveFileDialog.FileName, saveText);
         }
 
+        /// <summary>
+        /// Öffnet Kaufabfrage und exportiert Rechnung und enfernt gekauftes Produkt. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBuy_Click(object sender, RoutedEventArgs e)
         {
             string nameDG = getCurrentDG();
-            DataGrid currentDG = (DataGrid)this.FindName(nameDG);
-            if (currentDG == null || currentDG.SelectedItem == null) return;
+            DataGrid currentDG = (DataGrid)this.FindName(nameDG); //Sucht das DataGrid anhand des Namens.
+            if (currentDG == null || currentDG.SelectedItem == null) return; //Falls kein Element selektiert ist - Abbruch!
 
             Produkt selected = null;
 
@@ -425,10 +438,11 @@ namespace zoohandlung
             {
                 selected = spielzeugListe.ElementAt(currentDG.Items.IndexOf(currentDG.SelectedItem));
             }
-            if (selected == null) return;
+            if (selected == null) return; //Kein selektiertes Element? - Abbruch!
 
             string saveText = selected.toString();
 
+            //Kaufabfrage öffnen
             if (MessageBox.Show("Sind Sie sich sicher, dass Sie \"" + selected.bezeichnung + "\" kaufen möchten?", "Kaufen?", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -439,38 +453,7 @@ namespace zoohandlung
 
                 //Delete
                 btnDelete_Click(null, null);
-            }
-            else
-            {
-                // Do not close the window  
-            }
-
-            
+            }           
         }
-
-        //public static List<T> FindChildren<T>(DependencyObject parent) where T : DependencyObject
-        //{
-        //    if (parent == null) return null;
-
-        //    List<T> children = new List<T>();
-
-        //    int childrenCount = VisualTreeHelper.GetChildrenCount(parent);
-
-        //    for (int i = 0; i < childrenCount; i++)
-        //    {
-        //        var child = VisualTreeHelper.GetChild(parent, i);
-        //        T childType = child as T;
-        //        if (childType == null)
-        //        {
-        //            children.AddRange(FindChildren<T>(child));
-        //        }
-        //        else
-        //        {
-        //            children.Add((T)child);
-        //        }
-        //    }
-
-        //    return children;
-        //}
     }
 }

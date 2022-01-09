@@ -8,7 +8,8 @@ namespace zoohandlung
 {
     public class Tier : Produkt
     {
-        
+        //Viele Klassenproperties mussten wir wegen der Anbindung ans WPF DataGrid zu public setzten, ansonsten wäre es zu kompliziert geworden. Wir wissen aber, dass man die eigentlich Privat setzt und mit Getter und Setter freigibt. Haben Symbolisch aber getter und setter gesetzt.
+
         public string klasse { get; set; }
         public string geschlecht { get; set; }
         public string haltungsSchwierigkeit { get; set; }
@@ -33,6 +34,11 @@ namespace zoohandlung
 
         }
 
+        /// <summary>
+        /// Eigene toString implementation mit allen Properties der Klasse. 
+        /// Nutzt toString der Vererbenden Klasse.
+        /// </summary>
+        /// <returns>Properties und deren Wert als String (mehrzeilig)</returns>
         public override string toString()
         {
             string ausgabe = base.toString();
