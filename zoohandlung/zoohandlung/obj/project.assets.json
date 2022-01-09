@@ -8,23 +8,23 @@
     "net5.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Schueler-IT\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\morit\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Schueler-IT\\Source\\Repos\\zoohandlung\\zoohandlung\\zoohandlung\\zoohandlung.csproj",
+      "projectUniqueName": "C:\\Users\\morit\\Source\\Repos\\zoohandlung1\\zoohandlung\\zoohandlung\\zoohandlung.csproj",
       "projectName": "zoohandlung",
-      "projectPath": "C:\\Users\\Schueler-IT\\Source\\Repos\\zoohandlung\\zoohandlung\\zoohandlung\\zoohandlung.csproj",
-      "packagesPath": "C:\\Users\\Schueler-IT\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Schueler-IT\\Source\\Repos\\zoohandlung\\zoohandlung\\zoohandlung\\obj\\",
+      "projectPath": "C:\\Users\\morit\\Source\\Repos\\zoohandlung1\\zoohandlung\\zoohandlung\\zoohandlung.csproj",
+      "packagesPath": "C:\\Users\\morit\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\morit\\Source\\Repos\\zoohandlung1\\zoohandlung\\zoohandlung\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Schueler-IT\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\morit\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -60,6 +60,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[5.0.13, 5.0.13]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
@@ -68,7 +74,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

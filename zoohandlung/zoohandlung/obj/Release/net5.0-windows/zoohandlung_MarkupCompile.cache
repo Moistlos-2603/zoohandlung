@@ -1,20 +1,20 @@
 ﻿zoohandlung
-1.0.0.0
+
 
 winexe
 C#
 .cs
-C:\Users\morit\Source\Repos\zoohandlung1\zoohandlung\zoohandlung\obj\Debug\net5.0-windows\
+C:\Users\morit\Source\Repos\zoohandlung1\zoohandlung\zoohandlung\obj\Release\net5.0-windows\
 zoohandlung
 none
 false
-TRACE;DEBUG;NET;NET5_0;NETCOREAPP
+TRACE;RELEASE;NET;NET5_0;NETCOREAPP
 C:\Users\morit\Source\Repos\zoohandlung1\zoohandlung\zoohandlung\App.xaml
 11407045341
 
-12791639662
+10276524393
 193-1891726104
 MainWindow.xaml;
 
-False
+True
 
