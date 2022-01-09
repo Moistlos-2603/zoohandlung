@@ -42,7 +42,7 @@ namespace zoohandlung
             Pflegeprodukte testPflegeprodukte = new Pflegeprodukte("Krallenschere", 9, "");
             Spielzeug testSpielzeug = new Spielzeug("Laufrad", 20);
 
-            //testVogel.saveToFile("1"); 
+            testVogel.saveToFile("1"); 
             //testFisch.saveToFile("2");      
 
         }
