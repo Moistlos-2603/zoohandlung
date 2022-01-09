@@ -6,11 +6,22 @@ using System.Threading.Tasks;
 
 namespace zoohandlung
 {
-    class Spielzeug : Tierbedarf 
+    public class Spielzeug : Tierbedarf 
     {
-        public Spielzeug(string bezeichnung, int preis) : base(bezeichnung, preis, "")
+        public Spielzeug(string bezeichnung, int preis, string zielgruppe) : base(bezeichnung, preis, zielgruppe, "")
         {
 
+        }
+
+        public Spielzeug() : base()
+        {
+
+        }
+
+        public override string toString()
+        {
+            string ausgabe = base.toString();
+            return ausgabe;
         }
     }
 }

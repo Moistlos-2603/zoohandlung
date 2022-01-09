@@ -6,15 +6,20 @@ using System.Threading.Tasks;
 
 namespace zoohandlung
 {
-    class Nagetier : Tier
+    public class Nagetier : Tier
     {
-        private bool nachtAktiv { get; set; }
-        private bool rudelTier { get; set; }
+        public bool nachtAktiv { get; set; }
+        public bool rudelTier { get; set; }
 
         public Nagetier(string bezeichnung, int preis, bool ausleihbar, string geschlecht, string haltungsSchwierigkeit, string nahrung, int gewicht, int lebensErwartung, int alter, bool nachtAktiv, bool rudelTier) : base(bezeichnung, preis, ausleihbar, "Nagetier", geschlecht, haltungsSchwierigkeit, nahrung, gewicht, lebensErwartung, alter)
         {
             this.nachtAktiv = nachtAktiv;
             this.rudelTier = rudelTier;
+        }
+
+        public Nagetier() : base()
+        {
+
         }
 
         public override string toString()

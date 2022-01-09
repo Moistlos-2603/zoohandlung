@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace zoohandlung
 {
-    class Tier : Produkt
+    public class Tier : Produkt
     {
         
-        private string klasse { get; set; }
-        private string geschlecht { get; set; }
-        private string haltungsSchwierigkeit { get; set; }
-        private string nahrung { get; set; }
-        private int gewicht { get; set; }
-        private int lebensErwartung { get; set; }
-        private int alter { get; set; }
+        public string klasse { get; set; }
+        public string geschlecht { get; set; }
+        public string haltungsSchwierigkeit { get; set; }
+        public string nahrung { get; set; }
+        public int gewicht { get; set; }
+        public int lebensErwartung { get; set; }
+        public int alter { get; set; }
 
         public Tier(string bezeichnung, int preis, bool ausleihbar, string klasse, string geschlecht, string haltungsSchwierigkeit, string nahrung, int gewicht, int lebensErwartung, int alter) : base(bezeichnung, preis, ausleihbar)
         {
@@ -26,6 +26,24 @@ namespace zoohandlung
             this.gewicht = gewicht;
             this.lebensErwartung = lebensErwartung;
             this.alter = alter;
+        }
+
+        public Tier() : base()
+        {
+
+        }
+
+        public override string toString()
+        {
+            string ausgabe = base.toString();
+            ausgabe += "\nKlasse: " + this.klasse.ToString();
+            ausgabe += "\nGeschlecht : " + this.geschlecht.ToString();
+            ausgabe += "\nHaltungsSchwierigkeit: " + this.haltungsSchwierigkeit.ToString();
+            ausgabe += "\nNahrung: " + this.nahrung.ToString();
+            ausgabe += "\nGewicht: " + this.gewicht.ToString();
+            ausgabe += "\nLebenserwartung: " + this.lebensErwartung.ToString();
+            ausgabe += "\nAlter: " + this.alter.ToString();
+            return ausgabe;
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace zoohandlung
 {
-    class Vogel : Tier
+    public class Vogel : Tier
     {
         public bool flugFähig;
         public int flügelSpannweiteInCM;
@@ -16,6 +16,12 @@ namespace zoohandlung
             this.flugFähig = flugFähig;
             this.flügelSpannweiteInCM = flügelSpannweiteInCM;
         }
+
+        public Vogel() : base()
+        {
+
+        }
+
         public override string toString()
         {
             string ausgabe = base.toString();

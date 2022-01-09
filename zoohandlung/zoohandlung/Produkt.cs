@@ -8,13 +8,13 @@ using System.IO;
 
 namespace zoohandlung
 {
-    class Produkt
+    public class Produkt
     {
         private static int produktZähler { get; set; }
-        private int produktNummer { get; set; }
-        private string bezeichnung { get;  set; }
-        private int preis { get; set; }
-        private bool ausleihbar { get; set; }
+        public int produktNummer { get; set; }
+        public string bezeichnung { get;  set; }
+        public int preis { get; set; }
+        public bool ausleihbar { get; set; }
 
         public Produkt(string bezeichnung, int preis, bool ausleihbar)
         {
@@ -25,6 +25,12 @@ namespace zoohandlung
             this.ausleihbar = ausleihbar;
 
         }
+
+        public Produkt()
+        {
+
+        }
+
         public string getbezeichnung()
         {
             return this.bezeichnung;

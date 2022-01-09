@@ -6,11 +6,25 @@ using System.Threading.Tasks;
 
 namespace zoohandlung
 {
-    class Käfig : Tierbedarf
+    public class Käfig : Tierbedarf
     {
-        public Käfig(string bezeichnung, int preis) : base(bezeichnung, preis,"")
+        public decimal volumenInQM {get; set; }
+
+        public Käfig(string bezeichnung, int preis, decimal volumenInQM) : base(bezeichnung, preis, "","")
+        {
+            this.volumenInQM = volumenInQM;
+        }
+
+        public Käfig() : base()
         {
 
+        }
+
+        public override string toString()
+        {
+            string ausgabe = base.toString();
+            ausgabe += "\nVolumen: " + this.volumenInQM.ToString();
+            return ausgabe;
         }
     }
 }
