@@ -57,7 +57,7 @@ namespace zoohandlung
             //Pflegeprodukte testPflegeprodukte = new Pflegeprodukte("Krallenschere", 9, "Nagetiere", "");
             //Spielzeug testSpielzeug = new Spielzeug("Laufrad", 20, "Fisch");
 
-            //testVogel.saveToFile("1"); 
+            testVogel.saveToFile("1"); 
             //testFisch.saveToFile("2");      
 
             this.DataContext = this; //Wichtig, damit der View die Daten aufrufen kann.

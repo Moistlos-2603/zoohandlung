@@ -25,3 +25,25 @@ C:\Users\Gino Gasch\Source\Repos\Moistlos-2603\zoohandlung\zoohandlung\zoohandlu
 C:\Users\Gino Gasch\Source\Repos\Moistlos-2603\zoohandlung\zoohandlung\zoohandlung\obj\Debug\net5.0-windows\zoohandlung.pdb
 C:\Users\Gino Gasch\Source\Repos\Moistlos-2603\zoohandlung\zoohandlung\zoohandlung\obj\Debug\net5.0-windows\zoohandlung.genruntimeconfig.cache
 C:\Users\Gino Gasch\Source\Repos\Moistlos-2603\zoohandlung\zoohandlung\zoohandlung\obj\Debug\net5.0-windows\zoohandlung.csprojAssemblyReference.cache
+C:\Users\morit\Source\Repos\zoohandlung1\zoohandlung\zoohandlung\bin\Debug\net5.0-windows\zoohandlung.exe
+C:\Users\morit\Source\Repos\zoohandlung1\zoohandlung\zoohandlung\bin\Debug\net5.0-windows\zoohandlung.deps.json
+C:\Users\morit\Source\Repos\zoohandlung1\zoohandlung\zoohandlung\bin\Debug\net5.0-windows\zoohandlung.runtimeconfig.json
+C:\Users\morit\Source\Repos\zoohandlung1\zoohandlung\zoohandlung\bin\Debug\net5.0-windows\zoohandlung.runtimeconfig.dev.json
+C:\Users\morit\Source\Repos\zoohandlung1\zoohandlung\zoohandlung\bin\Debug\net5.0-windows\zoohandlung.dll
+C:\Users\morit\Source\Repos\zoohandlung1\zoohandlung\zoohandlung\bin\Debug\net5.0-windows\ref\zoohandlung.dll
+C:\Users\morit\Source\Repos\zoohandlung1\zoohandlung\zoohandlung\bin\Debug\net5.0-windows\zoohandlung.pdb
+C:\Users\morit\Source\Repos\zoohandlung1\zoohandlung\zoohandlung\obj\Debug\net5.0-windows\zoohandlung.csproj.AssemblyReference.cache
+C:\Users\morit\Source\Repos\zoohandlung1\zoohandlung\zoohandlung\obj\Debug\net5.0-windows\MainWindow.g.cs
+C:\Users\morit\Source\Repos\zoohandlung1\zoohandlung\zoohandlung\obj\Debug\net5.0-windows\App.g.cs
+C:\Users\morit\Source\Repos\zoohandlung1\zoohandlung\zoohandlung\obj\Debug\net5.0-windows\zoohandlung_MarkupCompile.cache
+C:\Users\morit\Source\Repos\zoohandlung1\zoohandlung\zoohandlung\obj\Debug\net5.0-windows\zoohandlung_MarkupCompile.lref
+C:\Users\morit\Source\Repos\zoohandlung1\zoohandlung\zoohandlung\obj\Debug\net5.0-windows\MainWindow.baml
+C:\Users\morit\Source\Repos\zoohandlung1\zoohandlung\zoohandlung\obj\Debug\net5.0-windows\zoohandlung.g.resources
+C:\Users\morit\Source\Repos\zoohandlung1\zoohandlung\zoohandlung\obj\Debug\net5.0-windows\zoohandlung.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\morit\Source\Repos\zoohandlung1\zoohandlung\zoohandlung\obj\Debug\net5.0-windows\zoohandlung.AssemblyInfoInputs.cache
+C:\Users\morit\Source\Repos\zoohandlung1\zoohandlung\zoohandlung\obj\Debug\net5.0-windows\zoohandlung.AssemblyInfo.cs
+C:\Users\morit\Source\Repos\zoohandlung1\zoohandlung\zoohandlung\obj\Debug\net5.0-windows\zoohandlung.csproj.CoreCompileInputs.cache
+C:\Users\morit\Source\Repos\zoohandlung1\zoohandlung\zoohandlung\obj\Debug\net5.0-windows\zoohandlung.dll
+C:\Users\morit\Source\Repos\zoohandlung1\zoohandlung\zoohandlung\obj\Debug\net5.0-windows\ref\zoohandlung.dll
+C:\Users\morit\Source\Repos\zoohandlung1\zoohandlung\zoohandlung\obj\Debug\net5.0-windows\zoohandlung.pdb
+C:\Users\morit\Source\Repos\zoohandlung1\zoohandlung\zoohandlung\obj\Debug\net5.0-windows\zoohandlung.genruntimeconfig.cache
