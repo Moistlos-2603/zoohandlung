@@ -6,17 +6,22 @@ using System.Threading.Tasks;
 
 namespace zoohandlung
 {
-    class Fisch : Tier
+    public class Fisch : Tier
     {
-        private bool süßWasser { get; set; }
-        private int rückenFlossen { get; set; }
-        private int längeInCM { get; set; }
+        public bool süßWasser { get; set; }
+        public int rückenFlossen { get; set; }
+        public int längeInCM { get; set; }
 
         public Fisch(string bezeichnung, int preis, bool ausleihbar, string geschlecht, string haltungsSchwierigkeit, string nahrung, int gewicht, int lebensErwartung, int alter, bool süßWasser, int rückenFlossen, int längeInCM) : base(bezeichnung, preis, ausleihbar, "Fisch", geschlecht, haltungsSchwierigkeit, nahrung, gewicht, lebensErwartung, alter)
         {
             this.süßWasser = süßWasser;
             this.rückenFlossen = rückenFlossen;
             this.längeInCM = längeInCM;
+        }
+
+        public Fisch() : base()
+        {
+
         }
 
         public override string toString()

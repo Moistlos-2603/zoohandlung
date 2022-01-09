@@ -3,10 +3,171 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:zoohandlung"
+        xmlns:local="clr-namespace:zoohandlung" xmlns:converters="clr-namespace:zoohandlung"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Zoomania" Height="800" Width="1280" ResizeMode="NoResize">
+    <Window.Resources>
+        <ResourceDictionary><!--Not in use-->
+            <Style x:Key="CustomListViewItemStyle" TargetType="{x:Type ListViewItem}">
+                <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                <Setter Property="VerticalContentAlignment" Value="Stretch"></Setter>
+                <Style.Triggers>
+                    <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                        <Setter Property="Background" Value="#FCFCFC"></Setter>
+                    </Trigger>
+                    <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                        <Setter Property="Background" Value="#C6C6C6"></Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style TargetType="DataGridCell">
+                <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                <Setter Property="TextBlock.VerticalAlignment" Value="Center" />
+                <!--<Setter Property="Content" Value="ScaleTransform Applied" />-->
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid >
+        <Grid x:Name="LoginWindow" Visibility="Visible">
+            <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" Text="Zoomania" TextWrapping="Wrap" VerticalAlignment="Top" Height="199" Width="1260" FontSize="72" FontFamily="Century" FontWeight="Bold" FontStyle="Normal" TextAlignment="Center"/>
+            <Button x:Name="kundenLogin" Content="Kundenlogin" Margin="10,214,640,10" Click="Button_Click" FontSize="48" FontFamily="Bahnschrift Light Condensed" FontWeight="Normal" RenderTransformOrigin="0.5,0.5"/>
+            <Button x:Name="mitarbeiterLogin" Content="Mitarbeiterlogin" Margin="645,214,5,10" Click="Button_Click" FontSize="48" FontFamily="Bahnschrift Light Condensed" FontWeight="Normal" RenderTransformOrigin="0.5,0.5"/>
+        </Grid>
+        <Grid x:Name="ShopWindow" Visibility="Hidden">
+            <TabControl x:Name="ShopTabs">
+                <TabItem x:Name="TierTab" Header="TIERE" Margin="0,2,-73,-20" FontSize="36" FontFamily="Bahnschrift Light" Height="70">
+                    <Grid Background="#FFE5E5E5">
+                        <TabControl x:Name="TierTabs" Margin="0,10,0,0">
+                            <TabItem x:Name="NagetiereTab" Header="Nagetiere" FontSize="32">
+                                <Grid Background="#FFE5E5E5"><!--IsReadOnly="{Binding isKunde}"-->
+                                    <DataGrid Name="NagetiereDG" ItemsSource="{Binding nagerListe}" AutoGenerateColumns="False" FontSize="24" SelectionMode="Single" CanUserAddRows="False">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Bezeichnung"  Binding="{Binding bezeichnung}"/>
+                                            <DataGridTextColumn Header="Preis (€)" Binding="{Binding preis}" />
+                                            <DataGridTextColumn Header="Alter" Binding="{Binding alter}" />
+                                            <DataGridTextColumn Header="LebensErwartung" Binding="{Binding lebensErwartung}" />
+                                            <DataGridTextColumn Header="Geschlecht" Binding="{Binding geschlecht}" />
+                                            <DataGridTextColumn Header="Gewicht (g)" Binding="{Binding gewicht}" />
+                                            <DataGridTextColumn Header="Nahrung" Binding="{Binding nahrung}" />
+                                            <!--<DataGridComboBoxColumn Header="Order Status"  SelectedItemBinding="{Binding geschlecht}" ItemsSource="{Binding Source={StaticResource enumGeschlecht}}" />-->
+                                            <DataGridCheckBoxColumn Header="Nachaktiv?" Binding="{Binding nachtAktiv}" />
+                                            <DataGridCheckBoxColumn Header="RudelTier?" Binding="{Binding rudelTier}" />
+                                            <DataGridTextColumn Header="Haltungsschwierigkeit" Binding="{Binding haltungsSchwierigkeit}" />
+                                            <DataGridCheckBoxColumn Header="Ausleihbar" Binding="{Binding ausleihbar}" />
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </Grid>
+                            </TabItem>
+                            <TabItem x:Name="FischeTab" Header="Fische" FontSize="32">
+                                <Grid Background="#FFE5E5E5">
+                                    <!--<ListBox x:Name="FischeListBox"/>-->
+                                    <DataGrid Name="FischeDG" ItemsSource="{Binding fischListe}" AutoGenerateColumns="False" FontSize="24" SelectionMode="Single" CanUserAddRows="False">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Bezeichnung"  Binding="{Binding bezeichnung}"/>
+                                            <DataGridTextColumn Header="Preis (€)" Binding="{Binding preis}" />
+                                            <DataGridTextColumn Header="Alter" Binding="{Binding alter}" />
+                                            <DataGridTextColumn Header="LebensErwartung" Binding="{Binding lebensErwartung}" />
+                                            <DataGridTextColumn Header="Geschlecht" Binding="{Binding geschlecht}" />
+                                            <DataGridTextColumn Header="Nahrung" Binding="{Binding nahrung}" />
+                                            <DataGridTextColumn Header="Gewicht (g)" Binding="{Binding gewicht}" />
+                                            <DataGridCheckBoxColumn Header="SüßWasser?" Binding="{Binding süßWasser}" />
+                                            <DataGridTextColumn Header="Rückenflossen" Binding="{Binding rückenFlossen}" />
+                                            <DataGridTextColumn Header="Länge in cm" Binding="{Binding längeInCM}" />
+                                            <DataGridTextColumn Header="Haltungsschwierigkeit" Binding="{Binding haltungsSchwierigkeit}" />
+                                            <DataGridCheckBoxColumn Header="Ausleihbar" Binding="{Binding ausleihbar}" />
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </Grid>
+                            </TabItem>
+                            <TabItem x:Name="VögelTab" Header="Vögel" FontSize="32">
+                                <Grid Background="#FFE5E5E5">
+                                    <DataGrid Name="VögelDG" ItemsSource="{Binding vogelListe}" AutoGenerateColumns="False" FontSize="24" SelectionMode="Single" CanUserAddRows="False">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Bezeichnung"  Binding="{Binding bezeichnung}"/>
+                                            <DataGridTextColumn Header="Preis (€)" Binding="{Binding preis}" />
+                                            <DataGridTextColumn Header="Alter" Binding="{Binding alter}" />
+                                            <DataGridTextColumn Header="LebensErwartung" Binding="{Binding lebensErwartung}" />
+                                            <DataGridTextColumn Header="Geschlecht" Binding="{Binding geschlecht}" />
+                                            <DataGridTextColumn Header="Nahrung" Binding="{Binding nahrung}" />
+                                            <DataGridTextColumn Header="Gewicht (g)" Binding="{Binding gewicht}" />
+                                            <DataGridTextColumn Header="Flügelspannweite in cm" Binding="{Binding flügelSpannweiteInCM}" />
+                                            <DataGridCheckBoxColumn Header="Flugfähig?" Binding="{Binding flugFähig}" />
+                                            <DataGridTextColumn Header="Haltungsschwierigkeit" Binding="{Binding haltungsSchwierigkeit}" />
+                                            <DataGridCheckBoxColumn Header="Ausleihbar" Binding="{Binding ausleihbar}" />
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </Grid>
+                            </TabItem>
+                        </TabControl>
+                        <!--<ListBox Name="ListBoxTiere" ItemsSource="{Binding TierListe, Mode=OneWay}"/>-->
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="BedarfTab" Header="TIERBEDARF" Margin="68,-2,-150,-20" FontSize="24" FontFamily="Bahnschrift Light" Height="70">
+                    <Grid Background="#FFE5E5E5">
+                        <TabControl x:Name="TierbedarfTabs" Margin="0,10,0,0">
+                            <!--<Tierbedarf geändert von Tiertab/tiertab>-->
+                            <TabItem x:Name="FutterTab" Header="Futter" FontSize="32">
+                                <Grid Background="#FFE5E5E5">
+                                    <DataGrid Name="FutterDG" ItemsSource="{Binding futterListe}" AutoGenerateColumns="False" FontSize="24" SelectionMode="Single" CanUserAddRows="False">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Bezeichnung"  Binding="{Binding bezeichnung}"/>
+                                            <DataGridTextColumn Header="Zielgruppe"  Binding="{Binding zielgruppe}"/>
+                                            <DataGridTextColumn Header="Preis (€)" Binding="{Binding preis}" />
+                                            <DataGridTextColumn Header="Ablaufsdatum" Binding="{Binding ablaufsDatum}" />
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </Grid>
+                            </TabItem>
+                            <TabItem x:Name="KäfigTab" Header="Käfig" FontSize="32">
+                                <Grid Background="#FFE5E5E5">
+                                    <DataGrid Name="KäfigDG" ItemsSource="{Binding käfigListe}" AutoGenerateColumns="False" FontSize="24" SelectionMode="Single" CanUserAddRows="False">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Bezeichnung"  Binding="{Binding bezeichnung}"/>
+                                            <DataGridTextColumn Header="Preis (€)" Binding="{Binding preis}" />
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </Grid>
+                            </TabItem>
+                            <TabItem x:Name="PflegeprodukteTab" Header="Pflegeprodukte" FontSize="32">
+                                <Grid Background="#FFE5E5E5">
+                                    <DataGrid Name="PflegeprodukteDG" ItemsSource="{Binding pflegeprodukteListe}" AutoGenerateColumns="False" FontSize="24" SelectionMode="Single" CanUserAddRows="False">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Bezeichnung"  Binding="{Binding bezeichnung}"/>
+                                            <DataGridTextColumn Header="Zielgruppe"  Binding="{Binding zielgruppe}"/>
+                                            <DataGridTextColumn Header="Preis (€)" Binding="{Binding preis}" />
+                                            <DataGridTextColumn Header="Ablaufsdatum" Binding="{Binding ablaufsDatum}" />
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </Grid>
+                            </TabItem>
+                            <TabItem x:Name="SpielzeugTab" Header="Spielzeug" FontSize="32">
+                                <Grid Background="#FFE5E5E5">
+                                    <DataGrid Name="SpielzeugDG" ItemsSource="{Binding spielzeugListe}" AutoGenerateColumns="False" FontSize="24" SelectionMode="Single" CanUserAddRows="False">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Bezeichnung"  Binding="{Binding bezeichnung}"/>
+                                            <DataGridTextColumn Header="Zielgruppe"  Binding="{Binding zielgruppe}"/>
+                                            <DataGridTextColumn Header="Preis (€)" Binding="{Binding preis}" />
+                                            <DataGridTextColumn Header="Ablaufsdatum" Binding="{Binding ablaufsDatum}" />
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </Grid>
+                            </TabItem>
+                        </TabControl>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+            <Button x:Name="logoutButton" Content="Logout" Margin="1150,10,10,0" VerticalAlignment="Top" Height="46" FontSize="22" FontFamily="Bahnschrift SemiLight" FontWeight="Normal" Click="logoutButton_Click"/>
 
+            <Button x:Name="btnExportAllData" Content="Export All" Margin="665,10,0,0" VerticalAlignment="Top" Width="100" Height="46" FontSize="20" FontFamily="Bahnschrift SemiLight" FontWeight="Normal" Click="btnExportAllData_Click"/>
+            <Button x:Name="btnGenerateData" Content="Beispiel" Margin="900,10,0,0" VerticalAlignment="Top" Width="100" Height="46" FontSize="22" FontFamily="Bahnschrift SemiLight" FontWeight="Normal" Click="btnGenerateData_Click"/>
+            <Button x:Name="btnAdd" Content="+" HorizontalAlignment="Left" Margin="419,11,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="btnAdd_Click" FontSize="24" FontFamily="Bahnschrift"/>
+            <Button x:Name="btnDelete" Content="-" HorizontalAlignment="Left" Margin="475,11,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="btnDelete_Click" FontSize="24" FontFamily="Bahnschrift"/>
+            <Button x:Name="btnSaveSingle" Content="Export" HorizontalAlignment="Left" Margin="530,11,0,0" VerticalAlignment="Top" Width="100" Height="50" FontSize="16" FontFamily="Bahnschrift" Click="btnSaveSingle_Click"/>
+            
+            <Button x:Name="btnBuy" Content="Kaufen" HorizontalAlignment="Left" Margin="419,11,0,0" VerticalAlignment="Top" Width="100" Height="50" FontSize="16" FontFamily="Bahnschrift" Click="btnBuy_Click"/>
+            <!--Visibility="{Binding IsKunde, Converter={StaticResource negatedBoolToVisibilityConverter}, UpdateSourceTrigger=PropertyChanged}"-->
+        </Grid>
     </Grid>
 </Window>
+    
+

@@ -6,13 +6,28 @@ using System.Threading.Tasks;
 
 namespace zoohandlung
 {
-    class Tierbedarf : Produkt
+    public class Tierbedarf : Produkt
     {
-        private string ablaufsDatum { get; set; }
+        public string ablaufsDatum { get; set; }
+        public string zielgruppe { get; set; }
 
-        public Tierbedarf(string bezeichnung, int preis, string ablaufsDatum) : base(bezeichnung, preis, false)
+        public Tierbedarf(string bezeichnung, int preis, string zielgruppe, string ablaufsDatum) : base(bezeichnung, preis, false)
+        {
+            this.zielgruppe = zielgruppe;
+            this.ablaufsDatum = ablaufsDatum;
+        }
+
+        public Tierbedarf() : base()
         {
 
+        }
+
+        public override string toString()
+        {
+            string ausgabe = base.toString();
+            ausgabe += "\nAblaufsDatum: " + this.ablaufsDatum.ToString();
+            ausgabe += "\nZielgruppe : " + this.zielgruppe.ToString();
+            return ausgabe;
         }
     }
 }
