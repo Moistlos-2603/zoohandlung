@@ -6,15 +6,26 @@ using System.Threading.Tasks;
 
 namespace zoohandlung
 {
-    class Tier : Produkte
+    class Tier : Produkt
     {
-        public string rasse;
-        public string name;
-        public bool saeugetier;
-        public string geschlecht;
-        public Tier(string bezeichnung) : base(bezeichnung)
-        {
+        
+        private string klasse { get; set; }
+        private string geschlecht { get; set; }
+        private string haltungsSchwierigkeit { get; set; }
+        private string nahrung { get; set; }
+        private int gewicht { get; set; }
+        private int lebensErwartung { get; set; }
+        private int alter { get; set; }
 
+        public Tier(string bezeichnung, int preis, bool ausleihbar, string klasse, string geschlecht, string haltungsSchwierigkeit, string nahrung, int gewicht, int lebensErwartung, int alter) : base(bezeichnung, preis, ausleihbar)
+        {
+            this.klasse = klasse;
+            this.geschlecht = geschlecht;
+            this.haltungsSchwierigkeit = haltungsSchwierigkeit;
+            this.nahrung = nahrung;
+            this.gewicht = gewicht;
+            this.lebensErwartung = lebensErwartung;
+            this.alter = alter;
         }
     }
 }

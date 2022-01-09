@@ -4,15 +4,26 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 C:\Users\morit\Source\Repos\zoohandlung1\zoohandlung\zoohandlung\obj\Release\net5.0-windows\
+=======
+C:\Users\Gino Gasch\Source\Repos\Moistlos-2603\zoohandlung\zoohandlung\zoohandlung\obj\Release\net5.0-windows\
+>>>>>>> ae99ac5f76d0e4058bef699dfdf5bf06ba0c1e82
 zoohandlung
 none
 false
 TRACE;RELEASE;NET;NET5_0;NETCOREAPP
+<<<<<<< HEAD
 C:\Users\morit\Source\Repos\zoohandlung1\zoohandlung\zoohandlung\App.xaml
 11407045341
 
 10276524393
+=======
+C:\Users\Gino Gasch\Source\Repos\Moistlos-2603\zoohandlung\zoohandlung\zoohandlung\App.xaml
+11407045341
+
+13-1334302416
+>>>>>>> ae99ac5f76d0e4058bef699dfdf5bf06ba0c1e82
 193-1891726104
 MainWindow.xaml;
 
