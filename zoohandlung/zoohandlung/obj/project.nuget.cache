@@ -1,8 +1,17 @@
 {
   "version": 2,
+<<<<<<< HEAD
+  "dgSpecHash": "Wnytq8gNwoRsVigC/D3PtIkmAyMbL9JxrNmCaESi+3Udcxwcq3G47ND3xqnEGi/bzMdc4goC2lQciV1d6nrWcg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\morit\\Source\\Repos\\zoohandlung1\\zoohandlung\\zoohandlung\\zoohandlung.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\morit\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.13\\microsoft.netcore.app.host.win-x64.5.0.13.nupkg.sha512"
+  ],
+=======
   "dgSpecHash": "csOS7cj3isobjRwEGQBo2oSvw0R6BYO/91x55z9pYb7E0DuOBJQzBydevS9r5yKyC4FUWk8WYfzzQIc6059bvw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Gino Gasch\\Source\\Repos\\Moistlos-2603\\zoohandlung\\zoohandlung\\zoohandlung\\zoohandlung.csproj",
   "expectedPackageFiles": [],
+>>>>>>> ae99ac5f76d0e4058bef699dfdf5bf06ba0c1e82
   "logs": []
 }
