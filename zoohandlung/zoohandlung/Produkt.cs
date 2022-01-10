@@ -5,12 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.IO;
+using Newtonsoft.Json;
 
 namespace zoohandlung
 {
     public class Produkt
     {
-        //Viele Klassenproperties mussten wir wegen der Anbindung ans WPF DataGrid zu public setzten, ansonsten wäre es zu kompliziert geworden. Wir wissen aber, dass man die eigentlich Privat setzt und mit Getter und Setter freigibt. Haben Symbolisch aber getter und setter gesetzt.
+        //Viele Klassenproperties mussten wir wegen der Anbindung ans WPF DataGrid zu public setzten, ansonsten wäre es zu kompliziert geworden. Wir wissen aber, dass man die eigentlich Privat setzt und mit Getter und Setter freigibt. 
+        //Haben Symbolisch aber getter und setter gesetzt.
         private static int produktZähler { get; set; } //Inkrementiert mit jedem generierten Produkt.
         public int produktNummer { get; set; }
         public string bezeichnung { get;  set; }
@@ -34,6 +36,7 @@ namespace zoohandlung
 
         /// <summary>
         /// Eigene toString implementation mit allen Properties der Klasse.
+        /// Wird nicht mehr verwendet. Ersetzt von toJSON
         /// </summary>
         /// <returns>Properties und deren Wert als String (mehrzeilig)</returns>
         public virtual string toString()
@@ -44,6 +47,16 @@ namespace zoohandlung
             ausgabe += "\nPreis: " + this.preis;
             ausgabe += "\nAusleihbar: " + this.ausleihbar.ToString();
             return ausgabe;
+        }
+
+        /// <summary>
+        /// Wandelt Produkt in JSON um und returnd es als String.
+        /// </summary>
+        /// <returns></returns>
+        public string toJSON()
+        {
+            string json = JsonConvert.SerializeObject(this);
+            return json;
         }
 
         /// <summary>
@@ -59,5 +72,6 @@ namespace zoohandlung
             path = System.IO.Path.Combine(path, fileName);
             File.WriteAllText(path, this.toString());
         }
+
     }
 }

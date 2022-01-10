@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -40,7 +41,7 @@ namespace zoohandlung
         public MainWindow()
         {
             InitializeComponent();
-
+            
 
             //Testdateien für die Konsole. 
 
@@ -89,6 +90,7 @@ namespace zoohandlung
                 btnDelete.Visibility = Visibility.Hidden;
                 btnSaveSingle.Visibility = Visibility.Hidden;
                 btnExportAllData.Visibility = Visibility.Hidden;
+                btnImport.Visibility = Visibility.Hidden;
                 btnGenerateData.Visibility = Visibility.Hidden;
 
                 btnBuy.Visibility = Visibility.Visible;
@@ -99,6 +101,7 @@ namespace zoohandlung
                 btnDelete.Visibility = Visibility.Visible;
                 btnSaveSingle.Visibility = Visibility.Visible;
                 btnExportAllData.Visibility = Visibility.Visible;
+                btnImport.Visibility = Visibility.Visible;
                 btnGenerateData.Visibility = Visibility.Visible;
 
                 btnBuy.Visibility = Visibility.Hidden;
@@ -169,72 +172,106 @@ namespace zoohandlung
         }
 
         /// <summary>
-        /// Öffnet FileSaveDialog und exportiert alle kategoriendaten an angewählten Speicherplart.
+        /// Öffnet FileSaveDialog und exportiert alle kategoriendaten an angewählten Speicherplart. (Als JSON)
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnExportAllData_Click(object sender, RoutedEventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Text file (*.txt)|*.txt";
+            saveFileDialog.Filter = "JSON file (*.json)|*.json";
             if (saveFileDialog.ShowDialog() == true)
             {
-                string allDataText = "";
-
-                allDataText += "Nagetiere: \n[";
-                foreach (Nagetier i in nagerListe) //Für jedes Element in der Liste, die toString Methode ausführen und den gesamt Datensatz hinzufügen.
+                ImportExport exportElement = new ImportExport();
+                foreach (Nagetier i in nagerListe) //Für jedes Element in der Liste, den Datensatz hinzufügen.
                 {
-                    allDataText += "\n" + i.toString();
+                    exportElement.nagerListe.Add(i);
                 }
-                allDataText += "\n]\n";
-
-                allDataText += "\nFische: \n[";
-                foreach (Fisch i in fischListe) 
+                foreach (Fisch i in fischListe) //Für jedes Element in der Liste, den Datensatz hinzufügen.
                 {
-                    allDataText += "\n" + i.toString();
+                    exportElement.fischListe.Add(i);
                 }
-                allDataText += "\n]\n";
-
-                allDataText += "\nVogel: \n[";
-                foreach (Vogel i in vogelListe)
+                foreach (Vogel i in vogelListe) //Für jedes Element in der Liste, den Datensatz hinzufügen.
                 {
-                    allDataText += "\n" + i.toString();
+                    exportElement.vogelListe.Add(i);
                 }
-                allDataText += "\n]\n";
-
-                allDataText += "\nFutter: \n[";
-                foreach (Futter i in futterListe)
+                foreach (Futter i in futterListe) //Für jedes Element in der Liste, den Datensatz hinzufügen.
                 {
-                    allDataText += "\n" + i.toString();
+                    exportElement.futterListe.Add(i);
                 }
-                allDataText += "\n]\n";
-
-                allDataText += "\nKäfig: \n[";
-                foreach (Käfig i in käfigListe)
+                foreach (Käfig i in käfigListe) //Für jedes Element in der Liste, den Datensatz hinzufügen.
                 {
-                    allDataText += "\n" + i.toString();
+                    exportElement.käfigListe.Add(i);
                 }
-                allDataText += "\n]\n";
-
-                allDataText += "\nPflegeprodukte: \n[";
-                foreach (Pflegeprodukte i in pflegeprodukteListe)
+                foreach (Pflegeprodukte i in pflegeprodukteListe) //Für jedes Element in der Liste, den Datensatz hinzufügen.
                 {
-                    allDataText += "\n" + i.toString();
+                    exportElement.pflegeprodukteListe.Add(i);
                 }
-                allDataText += "\n]\n";
-
-                allDataText += "\nSpielzeug: \n[";
-                foreach (Spielzeug i in spielzeugListe)
+                foreach (Spielzeug i in spielzeugListe) //Für jedes Element in der Liste, den Datensatz hinzufügen.
                 {
-                    allDataText += "\n" + i.toString();
+                    exportElement.spielzeugListe.Add(i);
                 }
-                allDataText += "\n]\n";
-
-                File.WriteAllText(saveFileDialog.FileName, allDataText); //Schreibt die gesammelten Daten in das Zielverzeichnis.
+                File.WriteAllText(saveFileDialog.FileName, JsonConvert.SerializeObject(exportElement)); //Schreibt die gesammelten Daten in das Zielverzeichnis.
             }
 
-            
+            //Wird nicht mehr verwendet, ersetzt durch JSON Import
 
+            //SaveFileDialog saveFileDialog = new SaveFileDialog();
+            //saveFileDialog.Filter = "Text file (*.txt)|*.txt";
+            //if (saveFileDialog.ShowDialog() == true)
+            //{
+            //    string allDataText = "";
+
+            //    allDataText += "Nagetiere: \n[";
+            //    foreach (Nagetier i in nagerListe) //Für jedes Element in der Liste, die toString Methode ausführen und den gesamt Datensatz hinzufügen.
+            //    {
+            //        allDataText += "\n" + i.toString();
+            //    }
+            //    allDataText += "\n]\n";
+
+            //    allDataText += "\nFische: \n[";
+            //    foreach (Fisch i in fischListe) 
+            //    {
+            //        allDataText += "\n" + i.toString();
+            //    }
+            //    allDataText += "\n]\n";
+
+            //    allDataText += "\nVogel: \n[";
+            //    foreach (Vogel i in vogelListe)
+            //    {
+            //        allDataText += "\n" + i.toString();
+            //    }
+            //    allDataText += "\n]\n";
+
+            //    allDataText += "\nFutter: \n[";
+            //    foreach (Futter i in futterListe)
+            //    {
+            //        allDataText += "\n" + i.toString();
+            //    }
+            //    allDataText += "\n]\n";
+
+            //    allDataText += "\nKäfig: \n[";
+            //    foreach (Käfig i in käfigListe)
+            //    {
+            //        allDataText += "\n" + i.toString();
+            //    }
+            //    allDataText += "\n]\n";
+
+            //    allDataText += "\nPflegeprodukte: \n[";
+            //    foreach (Pflegeprodukte i in pflegeprodukteListe)
+            //    {
+            //        allDataText += "\n" + i.toString();
+            //    }
+            //    allDataText += "\n]\n";
+
+            //    allDataText += "\nSpielzeug: \n[";
+            //    foreach (Spielzeug i in spielzeugListe)
+            //    {
+            //        allDataText += "\n" + i.toString();
+            //    }
+            //    allDataText += "\n]\n";
+
+            //    File.WriteAllText(saveFileDialog.FileName, allDataText); //Schreibt die gesammelten Daten in das Zielverzeichnis.
         }
 
         /// <summary>
@@ -363,7 +400,9 @@ namespace zoohandlung
 
             if (nameDG == "NagetiereDG")
             {
-                saveText = nagerListe.ElementAt(currentDG.Items.IndexOf(currentDG.SelectedItem)).toString();
+                //saveText = nagerListe.ElementAt(currentDG.Items.IndexOf(currentDG.SelectedItem)).toString();
+
+                saveText = nagerListe.ElementAt(currentDG.Items.IndexOf(currentDG.SelectedItem)).toJSON();
             }
             else if (nameDG == "FischeDG")
             {
@@ -454,6 +493,56 @@ namespace zoohandlung
                 //Delete
                 btnDelete_Click(null, null);
             }           
+        }
+
+        /// <summary>
+        /// Importiert eine JSON Datei.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnImport_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Importdatei auswählen";
+            saveFileDialog.OverwritePrompt = false;
+            saveFileDialog.Filter = "JSON file (*.json)|*.json";
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                using (StreamReader r = new StreamReader(saveFileDialog.FileName))
+                {
+                    string json = r.ReadToEnd();
+                    ImportExport importElement = JsonConvert.DeserializeObject<ImportExport>(json);
+
+                    foreach (Nagetier i in importElement.nagerListe) //Aus der Importierten Datei hinzufügen.
+                    {
+                        nagerListe.Add(i);
+                    }
+                    foreach (Fisch i in importElement.fischListe) //Aus der Importierten Datei hinzufügen.
+                    {
+                        fischListe.Add(i);
+                    }
+                    foreach (Vogel i in importElement.vogelListe) //Aus der Importierten Datei hinzufügen.
+                    {
+                        vogelListe.Add(i);
+                    }
+                    foreach (Futter i in importElement.futterListe) //Aus der Importierten Datei hinzufügen.
+                    {
+                        futterListe.Add(i);
+                    }
+                    foreach (Käfig i in importElement.käfigListe) //Aus der Importierten Datei hinzufügen.
+                    {
+                        käfigListe.Add(i);
+                    }
+                    foreach (Pflegeprodukte i in importElement.pflegeprodukteListe) //Aus der Importierten Datei hinzufügen.
+                    {
+                        pflegeprodukteListe.Add(i);
+                    }
+                    foreach (Spielzeug i in importElement.spielzeugListe) //Aus der Importierten Datei hinzufügen.
+                    {
+                        spielzeugListe.Add(i);
+                    }
+                }
+            }
         }
     }
 }

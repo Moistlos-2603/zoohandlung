@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "csOS7cj3isobjRwEGQBo2oSvw0R6BYO/91x55z9pYb7E0DuOBJQzBydevS9r5yKyC4FUWk8WYfzzQIc6059bvw==",
+  "dgSpecHash": "FGPEVJ/gk93XbJTzrUw6ZFQixJx7YZ9idOhoRHatAUM4cyPpVJjhSVn/txtE/d3XzjCeKu+Ur5IuSNvZrcL15w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Gino Gasch\\Source\\Repos\\Moistlos-2603\\zoohandlung\\zoohandlung\\zoohandlung\\zoohandlung.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Gino Gasch\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

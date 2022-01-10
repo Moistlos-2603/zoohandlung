@@ -158,6 +158,7 @@
             </TabControl>
             <Button x:Name="logoutButton" Content="Logout" Margin="1150,10,10,0" VerticalAlignment="Top" Height="46" FontSize="22" FontFamily="Bahnschrift SemiLight" FontWeight="Normal" Click="logoutButton_Click"/>
 
+            <Button x:Name="btnImport" Content="Import All" Margin="450,10,0,0" VerticalAlignment="Top" Width="100" Height="46" FontSize="20" FontFamily="Bahnschrift SemiLight" FontWeight="Normal" Click="btnImport_Click"/>
             <Button x:Name="btnExportAllData" Content="Export All" Margin="665,10,0,0" VerticalAlignment="Top" Width="100" Height="46" FontSize="20" FontFamily="Bahnschrift SemiLight" FontWeight="Normal" Click="btnExportAllData_Click"/>
             <Button x:Name="btnGenerateData" Content="Beispiel" Margin="900,10,0,0" VerticalAlignment="Top" Width="100" Height="46" FontSize="22" FontFamily="Bahnschrift SemiLight" FontWeight="Normal" Click="btnGenerateData_Click"/>
             <Button x:Name="btnAdd" Content="+" HorizontalAlignment="Left" Margin="419,11,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="btnAdd_Click" FontSize="24" FontFamily="Bahnschrift"/>
@@ -165,6 +166,8 @@
             <Button x:Name="btnSaveSingle" Content="Export" HorizontalAlignment="Left" Margin="530,11,0,0" VerticalAlignment="Top" Width="100" Height="50" FontSize="16" FontFamily="Bahnschrift" Click="btnSaveSingle_Click"/>
             
             <Button x:Name="btnBuy" Content="Kaufen" HorizontalAlignment="Left" Margin="419,11,0,0" VerticalAlignment="Top" Width="100" Height="50" FontSize="16" FontFamily="Bahnschrift" Click="btnBuy_Click"/>
+            
+            
             <!--Visibility="{Binding IsKunde, Converter={StaticResource negatedBoolToVisibilityConverter}, UpdateSourceTrigger=PropertyChanged}"-->
         </Grid>
     </Grid>
